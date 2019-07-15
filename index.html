@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- based on the wonderful tutorial from iEatWebsites at https://www.youtube.com/watch?v=yY6XnbWnK4o&t=930s -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Video Player test of streaming video</title>
+
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudlflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+<div class="container" id="video1">
+    <div class="c-video" id="c-video">
+        <video class="video" autoplay>
+            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
+        </video>
+        <div class="overlay">Overlay <a href="#">link</a></div>
+        <div class="controls">
+            <div class="orange-bar">
+                <div class="orange-juice">
+                    <!-- this will be the progress bar-->
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="play-pause" class="play"></button>
+               <button id="full-screen" class="full-screen"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/player.js">
+</script>
+<script>
+    UnrealWebRTCPlayer(document.querySelector('.video'));
+</script>
+</body>
+</html>
