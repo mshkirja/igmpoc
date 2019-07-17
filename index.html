@@ -34,10 +34,11 @@
 <script>
     let webrtcPlayer = new UnrealWebRTCPlayer("remoteVideo", "livedemocam", "", "65.23.154.147", "80", false, true, "udp");
     let remoteVideo = document.getElementById("remoteVideo");
-    webrtcPlayer.Play();  //Start playing automatically after webpage loads. In some cases it may not start to play automatically because of Chrome's autoplay policy; you will still need to click on Play button; a muted attribute can help, as described in http://www.umediaserver.net/phpBB3/viewtopic.php?f=29&t=3578
     const playPauseBtn = document.getElementById('play-pause');
     const fullScreenBtn = document.getElementById('full-screen');
     const cVideo = document.getElementById('c-video');
+
+    togglePlayPause(remoteVideo);
 
     function togglePlayPause(video) {
         if(video.paused) {
