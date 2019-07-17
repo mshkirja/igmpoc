@@ -1,8 +1,8 @@
 "use strict";
 
-function UnrealWebRTCPlayer(videoElement) {
+function player(videoElement) {
 const video = videoElement;
-const juice = document.querySelector('.orange-juice');
+const progress = document.querySelector('.progress-bar');
 const playPauseBtn = document.getElementById('play-pause');
 const fullScreenBtn = document.getElementById('full-screen');
 const cVideo = document.getElementById('c-video');
@@ -34,7 +34,7 @@ playPauseBtn.onclick = function (params) {
 
 video.addEventListener('timeupdate', function() {
     var juicePos = video.currentTime / video.duration;
-    juice.style.width = juicePos * 100 + "%";
+    progress.style.width = juicePos * 100 + "%";
     if(video.ended) {
         playPauseBtn.className = "play";
         // At the end of the movie, reset the position to the start and pause the playback.

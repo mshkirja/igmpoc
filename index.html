@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Simple Video Player test of streaming video</title>
-
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudlflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">-->
+                                      
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
 
@@ -15,13 +15,11 @@
 <body>
 <div class="container" id="video1">
     <div class="c-video" id="c-video">
-        <video class="video" autoplay>
-            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
-        </video>
-        <div class="overlay">Overlay <a href="#">link</a></div>
+        <video id="remoteVideo" class="video" autoplay></video>
+        <div class="overlay">Overlay <a href="#">link</a> <input type="text"></div>
         <div class="controls">
-            <div class="orange-bar">
-                <div class="orange-juice">
+            <div class="controls-bar">
+                <div class="progress-bar">
                     <!-- this will be the progress bar-->
                 </div>
             </div>
@@ -32,10 +30,12 @@
         </div>
     </div>
 </div>
-<script src="./js/player.js">
-</script>
+<script src="./js/unrealwebrtcplayer.js"></script>
+<script src="./js/player.js"></script>
 <script>
-    UnrealWebRTCPlayer(document.querySelector('.video'));
+    let webrtcPlayer = new UnrealWebRTCPlayer("remoteVideo", "livedemocam", "", "65.23.154.147", "80", false, true, "udp");
+    player(document.getElementById("remoteVideo"));
+    webrtcPlayer.Play();  //Start playing automatically after webpage loads. In some cases it may not start to play automatically because of Chrome's autoplay policy; you will still need to click on Play button; a muted attribute can help, as described in http://www.umediaserver.net/phpBB3/viewtopic.php?f=29&t=3578
 </script>
 </body>
 </html>
