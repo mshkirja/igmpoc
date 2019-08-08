@@ -1,0 +1,3 @@
+#EXTM3U
+#EXT-X-STREAM-INF:BANDWIDTH=7680000,AVERAGE-BANDWIDTH=6000000
+https://hls1.inplayiptv.com/hls/dataops01/dataops01.m3u8
